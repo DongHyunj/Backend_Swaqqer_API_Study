@@ -5,7 +5,6 @@ import org.example.swaqqerapi_study.user.model.UserDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @RequestMapping("/user")
 @RestController
 @RequiredArgsConstructor
