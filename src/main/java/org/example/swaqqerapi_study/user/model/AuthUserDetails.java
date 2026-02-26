@@ -12,8 +12,18 @@ import java.util.List;
 @Builder
 public class AuthUserDetails implements UserDetails {
     private Long idx;
+    private String email;
     private String username;
     private String password;
+
+    public static AuthUserDetails from(User entity) {
+        return AuthUserDetails.builder()
+                .idx(entity.getIdx())
+                .email(entity.getEmail())
+                .username(entity.getName())
+                .password(entity.getPassword())
+                .build();
+    }
 
 
 
