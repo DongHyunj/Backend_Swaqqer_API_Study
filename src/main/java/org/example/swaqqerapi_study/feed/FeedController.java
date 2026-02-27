@@ -6,8 +6,10 @@ import org.example.swaqqerapi_study.user.model.AuthUserDetails;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -22,5 +24,10 @@ public class FeedController {
         List<FeedDto.ListRes> result = feedSerivce.list(user);
 
         return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("/upload/image")
+    public ResponseEntity uploadImage(List<MultipartFile> images) {
+        List<FeedDto.ImageUploadRes> result = feedSerivce.uploadImage(images);
     }
 }

@@ -28,4 +28,7 @@ public class Feed {
     @OneToMany(mappedBy = "feed")
     private List<Likes> likesList;
 
+    @OneToMany(mappedBy = "feed")
+    public List<FeedImage> feedImageList;
+
 }
