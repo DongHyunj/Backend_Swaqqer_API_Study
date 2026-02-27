@@ -1,5 +1,6 @@
 package org.example.swaqqerapi_study.feed.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Getter;
 import org.example.swaqqerapi_study.user.model.AuthUserDetails;
@@ -9,8 +10,10 @@ import java.util.List;
 public class FeedDto {
 
     @Getter
-    public static class Reg {
+    public static class RegReq {
+        @Schema(description = "내용, 내용은 최대 225글자 까지만 입력 가능합니다.", required = true, example = "1번 게시글 내용 입니다.")
         private String contents;
+        @Schema(description = "이미지는 10MB 이하만 첨부 가능합니다.", required = true)
         private List<Long> imageIdxList;
 
         public Feed toEntity(AuthUserDetails user) {
