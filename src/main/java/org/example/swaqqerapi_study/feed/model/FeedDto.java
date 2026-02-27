@@ -27,4 +27,18 @@ public class FeedDto {
                     .build();
         }
     }
+
+    @Builder
+    @Getter
+    public static class ImageUploadRes {
+        private Long idx;
+        private String imageUrl;
+
+        public static ImageUploadRes from(FeedImage entity) {
+            return ImageUploadRes.builder()
+                    .idx(entity.getIdx())
+                    .imageUrl(entity.getImageUrl())
+                    .build();
+        }
+    }
 }
