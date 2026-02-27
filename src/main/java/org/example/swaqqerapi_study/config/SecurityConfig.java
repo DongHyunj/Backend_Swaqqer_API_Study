@@ -44,8 +44,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests(
                 (auth) -> auth
                         .requestMatchers("/user/login", "/user/signup").permitAll()
-                        .requestMatchers("/board/**").authenticated()
-                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
         );
 
         http.csrf(AbstractHttpConfigurer::disable);
