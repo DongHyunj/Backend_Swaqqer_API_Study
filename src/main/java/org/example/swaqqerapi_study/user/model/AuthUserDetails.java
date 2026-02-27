@@ -51,4 +51,12 @@ public class AuthUserDetails implements UserDetails {
     public boolean isAccountNonExpired() {
         return UserDetails.super.isAccountNonExpired();
     }
+
+    public User toEntity() {
+        return User.builder()
+                .idx(this.idx)
+                .email(this.email)
+                .password(this.password)
+                .build();
+    }
 }
