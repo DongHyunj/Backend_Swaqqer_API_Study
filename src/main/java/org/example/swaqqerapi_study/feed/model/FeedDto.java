@@ -27,6 +27,7 @@ public class FeedDto {
         private Long idx;
         private String contents;
         private String writer;
+        private List<String> images;
         private Long likesCount;
         private boolean isLikes;
 
@@ -35,6 +36,7 @@ public class FeedDto {
                     .idx(entity.getIdx())
                     .contents(entity.getContents())
                     .writer(entity.getUser().getName())
+                    .images(entity.getFeedImageList().stream().map(FeedImage::getImageUrl).toList())
                     .likesCount(Long.valueOf(entity.getLikesList().size()))
                     .isLikes(entity.getLikesList().stream().anyMatch(
                             likes -> likes.getUser().getIdx() == user.getIdx()
