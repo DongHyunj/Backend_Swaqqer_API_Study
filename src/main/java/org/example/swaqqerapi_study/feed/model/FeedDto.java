@@ -11,12 +11,14 @@ public class FeedDto {
         private Long idx;
         private String contents;
         private String writer;
+        private Long likesCount;
 
         public static ListRes from(Feed entity) {
             return ListRes.builder()
                     .idx(entity.getIdx())
                     .contents(entity.getContents())
                     .writer(entity.getUser().getName())
+                    .likesCount(Long.valueOf(entity.getLikesList().size()))
                     .build();
         }
     }
