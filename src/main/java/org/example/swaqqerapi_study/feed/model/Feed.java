@@ -19,6 +19,7 @@ public class Feed {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
+    @Column(nullable = false, length = 225)
     private String contents;
 
     @ManyToOne(fetch = FetchType.LAZY)
