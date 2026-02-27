@@ -4,7 +4,22 @@ import lombok.Builder;
 import lombok.Getter;
 import org.example.swaqqerapi_study.user.model.AuthUserDetails;
 
+import java.util.List;
+
 public class FeedDto {
+
+    @Getter
+    public static class Reg {
+        private String contents;
+        private List<Long> imageIdxList;
+
+        public Feed toEntity(AuthUserDetails user) {
+            return Feed.builder()
+                    .contents(contents)
+                    .user(user.toEntity())
+                    .build();
+        }
+    }
 
     @Builder
     @Getter

@@ -1,10 +1,7 @@
 package org.example.swaqqerapi_study.feed.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Getter
@@ -19,5 +16,6 @@ public class FeedImage {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="feed_idx")
+    @Setter
     private Feed feed;
 }
