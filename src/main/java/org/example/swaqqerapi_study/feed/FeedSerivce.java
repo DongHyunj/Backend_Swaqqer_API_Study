@@ -59,7 +59,7 @@ public class FeedSerivce {
         return filePath;
     }
 
-    public void reg(AuthUserDetails user, FeedDto.Reg dto) {
+    public void reg(AuthUserDetails user, FeedDto.RegReq dto) {
         Feed feed = feedRepository.save(dto.toEntity(user));
 
         for(FeedImage feedImage : feedImageRespository.findAllById(dto.getImageIdxList())) {
