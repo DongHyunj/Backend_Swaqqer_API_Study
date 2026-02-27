@@ -1,5 +1,6 @@
 package org.example.swaqqerapi_study.user;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.swaqqerapi_study.user.model.AuthUserDetails;
 import org.example.swaqqerapi_study.user.model.UserDto;
@@ -19,14 +20,14 @@ public class UserController {
     private final JwtUtil jwtUtil;
 
     @PostMapping("/signup")
-    public ResponseEntity signup(@RequestBody UserDto.SingupReq dto) {
+    public ResponseEntity signup(@Valid @RequestBody UserDto.SingupReq dto) {
         userService.signup(dto);
 
         return ResponseEntity.ok("등록 성공");
     }
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody UserDto.LoginReq dto) {
+    public ResponseEntity login(@Valid @RequestBody UserDto.LoginReq dto) {
         UsernamePasswordAuthenticationToken token =
                 new UsernamePasswordAuthenticationToken(dto.getEmail(), dto.getPassword(), null);
 
